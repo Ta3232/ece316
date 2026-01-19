@@ -55,8 +55,25 @@ int main(int argc, char *argv[]) {
     server_addr.sin_family = AF_INET;
     server_addr.sin_port = htons((uint16_t)port);
 
-    inet_pton(AF_INET, server_ip, &server_addr.sin_addr);
+    //inet_pton(AF_INET, server_ip, &server_addr.sin_addr);
+    struct addrinfo hints, *res = NULL;
+    memset(&hints, 0, sizeof(hints));
+    hints.ai_family = AF_INET;
+    hints.ai_socktype = SOCK_DGRAM;
 
+    int err = getaddrinfo(server_ip, argv[2], &hints, &res);
+    if (err != 0) {
+        fprintf(stderr, "getaddrinfo: %s\n", gai_strerror(err));
+        close(sockfd);
+        return 1;
+    }
+
+struct sockaddr_in server_addr;
+memset(&server_addr, 0, sizeof(server_addr));
+memcpy(&server_addr, res->ai_addr, sizeof(server_addr));
+freeaddrinfo(res);
+
+    
     sendto(sockfd, "ftp", 3, 0,
                (struct sockaddr *)&server_addr,
                sizeof(server_addr));
