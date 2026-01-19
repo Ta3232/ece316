@@ -68,10 +68,10 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-struct sockaddr_in server_addr;
-memset(&server_addr, 0, sizeof(server_addr));
-memcpy(&server_addr, res->ai_addr, sizeof(server_addr));
-freeaddrinfo(res);
+    struct sockaddr_in server_addr;
+    memset(&server_addr, 0, sizeof(server_addr));
+    memcpy(&server_addr, res->ai_addr, sizeof(server_addr));
+    freeaddrinfo(res);
 
     
     sendto(sockfd, "ftp", 3, 0,
