@@ -41,7 +41,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    //printf("Server listening on UDP port %d...\n", port);
+    printf("Server listening on UDP port %d...\n", port);
 
     // Receive a message
     char buf[BUF_SIZE];
@@ -67,9 +67,8 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    //printf("process to file transfer");
+    printf("process to file transfer");
 
 
     return 0;
 }
-
