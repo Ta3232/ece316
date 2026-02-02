@@ -74,7 +74,7 @@ int main(int argc, char *argv[]) {
                 break;
             }
                     
-            if (strcmp(type, "NACK") == 0 || strcmp(type, "ACK") == 0 && rtt > expected_rtt) {
+            if (strcmp(type, "NACK") == 0 || (strcmp(type, "ACK") == 0 && rtt > expected_rtt)) {
                 // resend same fragment
                 sendto(sockfd, packet, header_len + size, 0, res->ai_addr, res->ai_addrlen);
             }
