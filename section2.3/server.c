@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <sys/socket.h>
 #include <netdb.h>
+#include <time.h>
 
 #define BUF_SIZE 4096
 #define DROP_PROB 0.01
