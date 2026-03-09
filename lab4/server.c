@@ -7,10 +7,10 @@
 #include <sys/select.h>
 #include <netinet/in.h>
 
-#define MAX_NAME 50
+#define MAX_NAME 20
 #define MAX_DATA 1024
-#define MAX_CLIENTS 50
-#define MAX_SESSIONS 50
+#define MAX_CLIENTS 10
+#define MAX_SESSIONS 10
 #define BACKLOG 10
 
 typedef struct {
