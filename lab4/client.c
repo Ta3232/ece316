@@ -5,7 +5,7 @@
 #include <pthread.h>
 #include <arpa/inet.h>
 
-#define MAX_NAME 20
+#define MAX_NAME 50
 #define MAX_DATA 1024
 
 typedef struct {
